@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<script src="https://affiliates.serv.adse.site/assets/ads/ad.js" class="adScriptClass"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AdMob真实收益游戏 - 完整版</title>
     
-     <!-- 使用你的AdMob应用ID -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-6610998489553407" crossorigin="anonymous"></script>
+    <!-- 注意：AdMob主要用于移动应用，网站请使用Google AdSense -->
+    <!-- 这是AdSense脚本 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6610998489553407" crossorigin="anonymous"></script>
+    
+    <!-- 以下是广告网络脚本（如果你需要多个广告源） -->
+    <script async src="https://affiliates.serv.adse.site/assets/ads/ad.js" class="adScriptClass"></script>
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -255,9 +258,9 @@
     <div class="container">
         <!-- 头部 -->
         <div class="header">
-            <h1 class="title">💰 AdMob真实收益系统</h1>
+            <h1 class="title">💰 广告收益系统</h1>
             <p class="subtitle">配置完成 · 等待审核 · 即将开始真实收益</p>
-            <div class="status-badge">✅ AdMob已正确配置</div>
+            <div class="status-badge">✅ 广告系统已正确配置</div>
         </div>
         
         <!-- 实时统计 -->
@@ -326,28 +329,18 @@
             </div>
         </div>
         
-        <!-- AdMob信息展示 -->
+        <!-- 广告配置信息展示 -->
         <div class="admob-info">
-            <h3>✅ 你的AdMob配置信息</h3>
+            <h3>✅ 你的广告配置信息</h3>
             <div class="info-grid">
                 <div class="info-item">
-                    <div class="info-label">应用ID</div>
-                    <div class="info-value">ca-app-pub-6610998489553407~2615225821</div>
+                    <div class="info-label">Google AdSense</div>
+                    <div class="info-value">ca-pub-6610998489553407</div>
                 </div>
                 
                 <div class="info-item">
-                    <div class="info-label">横幅广告</div>
-                    <div class="info-value">ca-app-pub-6610998489553407/8953209940</div>
-                </div>
-                
-                <div class="info-item">
-                    <div class="info-label">插页式广告</div>
-                    <div class="info-value">ca-app-pub-6610998489553407/6215365965</div>
-                </div>
-                
-                <div class="info-item">
-                    <div class="info-label">激励视频广告</div>
-                    <div class="info-value">ca-app-pub-6610998489553407/9528118538</div>
+                    <div class="info-label">Servads网络</div>
+                    <div class="info-value">已接入</div>
                 </div>
             </div>
         </div>
@@ -357,37 +350,36 @@
             <h3>📝 当前状态说明</h3>
             <p><strong>审核状态：等待审核中（1-2天）</strong></p>
             <ul style="margin: 15px 0; padding-left: 20px; line-height: 1.6;">
-                <li>✅ 你的AdMob配置完全正确</li>
-                <li>⏳ Google正在审核你的网站应用</li>
+                <li>✅ 你的广告配置完全正确</li>
+                <li>⏳ Google正在审核你的网站</li>
                 <li>📱 审核期间可能显示"测试广告"</li>
                 <li>💰 审核通过后自动转为真实广告</li>
-                <li>📊 收益数据将在AdMob控制台显示</li>
-                <li>💳 累计$100可提现到PayPal</li>
+                <li>📊 收益数据将在广告控制台显示</li>
+                <li>💳 累计收益可提现</li>
             </ul>
         </div>
     </div>
     
     <!-- 真实横幅广告位 -->
     <div id="real-banner-ad">
+        <!-- Google AdSense 广告 -->
         <ins class="adsbygoogle"
              style="display:inline-block;width:100%;height:90px"
-             data-ad-client="ca-app-pub-6610998489553407"
+             data-ad-client="ca-pub-6610998489553407"
              data-ad-slot="8953209940"
              data-ad-format="auto"
              data-full-width-responsive="true">
         </ins>
-        <div class="ad-slot-label">你的AdMob横幅广告位 - 审核通过后显示真实广告</div>
+        <div class="ad-slot-label">广告位 - 审核通过后显示真实广告</div>
     </div>
 
     <script>
-        // ========== 你的真实AdMob配置 ==========
-        const ADMOB_CONFIG = {
-            appId: 'ca-app-pub-6610998489553407~2615225821',
-            publisherId: 'ca-app-pub-6610998489553407',
+        // ========== 广告配置 ==========
+        const AD_CONFIG = {
+            // 网站使用AdSense，移动应用使用AdMob
+            publisherId: 'ca-pub-6610998489553407',
             adUnits: {
-                banner: 'ca-app-pub-6610998489553407/8953209940',
-                interstitial: 'ca-app-pub-6610998489553407/6215365965',
-                rewarded: 'ca-app-pub-6610998489553407/9528118538'
+                banner: '8953209940'
             }
         };
         
@@ -594,25 +586,24 @@
             }
         }
         
-        // ========== 初始化AdMob ==========
-        function initAdMob() {
-            console.log('🚀 初始化AdMob广告系统');
-            console.log('📱 应用ID:', ADMOB_CONFIG.appId);
+        // ========== 初始化广告系统 ==========
+        function initAdSystem() {
+            console.log('🚀 初始化广告系统');
             
-            // 检查AdMob SDK
+            // 检查广告SDK
             if (typeof adsbygoogle === 'undefined') {
-                console.log('⚠️ AdMob SDK未加载，3秒后重试...');
-                setTimeout(initAdMob, 3000);
+                console.log('⚠️ AdSense SDK未加载，3秒后重试...');
+                setTimeout(initAdSystem, 3000);
                 return;
             }
             
-            console.log('✅ AdMob SDK已加载');
+            console.log('✅ 广告SDK已加载');
             
             // 初始化横幅广告
             initBannerAd();
             
             // 显示初始化成功
-            showNotification('✅ AdMob广告系统已激活', '#4CAF50');
+            showNotification('✅ 广告系统已激活', '#4CAF50');
         }
         
         // ========== 横幅广告 ==========
@@ -644,8 +635,6 @@
             if (!checkCooldown('rewarded')) return;
             
             console.log('🎬 显示激励视频广告');
-            console.log('广告单元ID:', ADMOB_CONFIG.adUnits.rewarded);
-            
             showAdInterface('rewarded', AD_EARNINGS.rewarded);
         }
         
@@ -654,8 +643,6 @@
             if (!checkCooldown('interstitial')) return;
             
             console.log('📱 显示插页式广告');
-            console.log('广告单元ID:', ADMOB_CONFIG.adUnits.interstitial);
-            
             showAdInterface('interstitial', AD_EARNINGS.interstitial);
         }
         
@@ -839,14 +826,7 @@
                     
                     <div style="font-size: 50px; margin-bottom: 20px;">🎬</div>
                     <h2 style="color: #4CAF50;">${adTypeText}</h2>
-                    <p style="opacity: 0.8; margin: 10px 0 25px 0;">AdMob真实广告演示界面</p>
-                    
-                    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; margin: 15px 0;">
-                        <div style="font-size: 11px; opacity: 0.7;">广告单元ID</div>
-                        <div style="font-family: monospace; font-size: 12px; word-break: break-all;">
-                            ${ADMOB_CONFIG.adUnits[adType] || ADMOB_CONFIG.adUnits.rewarded}
-                        </div>
-                    </div>
+                    <p style="opacity: 0.8; margin: 10px 0 25px 0;">广告演示界面</p>
                     
                     <div style="background: rgba(76, 175, 80, 0.2); padding: 20px; border-radius: 15px; margin: 25px 0; border: 1px solid rgba(76, 175, 80, 0.5);">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
@@ -880,8 +860,8 @@
                     </div>
                     
                     <div style="margin-top: 20px; font-size: 11px; opacity: 0.6; line-height: 1.5;">
-                        🔥 审核通过后，这里会显示Google真实广告<br>
-                        💰 所有收益将在AdMob控制台累计
+                        🔥 审核通过后，这里会显示真实广告<br>
+                        💰 所有收益将在控制台累计
                     </div>
                 </div>
             `;
@@ -1127,8 +1107,7 @@
         
         // ========== 页面加载 ==========
         window.addEventListener('load', function() {
-            console.log('🎮 AdMob真实收益游戏加载完成');
-            console.log('📊 你的配置:', ADMOB_CONFIG);
+            console.log('🎮 广告收益游戏加载完成');
             
             // 加载数据
             loadGameData();
@@ -1136,8 +1115,8 @@
             // 初始化每日奖励系统
             initDailyRewardSystem();
             
-            // 初始化AdMob
-            setTimeout(initAdMob, 1000);
+            // 初始化广告系统
+            setTimeout(initAdSystem, 1000);
             
             // 添加动画样式
             if (!document.getElementById('anim-styles')) {
@@ -1162,7 +1141,7 @@
             
             // 显示欢迎消息
             setTimeout(() => {
-                showNotification('🎉 AdMob配置完成！等待审核通过即可开始真实收益！', '#4CAF50');
+                showNotification('🎉 广告配置完成！等待审核通过即可开始真实收益！', '#4CAF50');
                 
                 // 检查每日奖励状态
                 if (dailyRewardSystem) {
@@ -1174,8 +1153,7 @@
                     }
                 }
             }, 2000);
-    
-    
-<script src="https://affiliates.serv.adse.site/assets/ads/ad.js" class="adScriptClass"></script>
-</body
+        });
+    </script>
+</body>
 </html>
