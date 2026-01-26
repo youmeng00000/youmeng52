@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdMob真实收益游戏 - 完整版</title>
+    <title>广告收益系统 - 完整版</title>
     
-    <!-- 注意：AdMob主要用于移动应用，网站请使用Google AdSense -->
-    <!-- 这是AdSense脚本 -->
+    <!-- Google AdSense 脚本 -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6610998489553407" crossorigin="anonymous"></script>
     
-    <!-- 以下是广告网络脚本（如果你需要多个广告源） -->
+    <!-- Servads 广告脚本 -->
     <script async src="https://affiliates.serv.adse.site/assets/ads/ad.js" class="adScriptClass"></script>
     
     <style>
@@ -26,7 +25,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            padding-bottom: 120px; /* 为底部广告留空间 */
+            padding-bottom: 120px;
         }
         
         .header {
@@ -256,14 +255,12 @@
 </head>
 <body>
     <div class="container">
-        <!-- 头部 -->
         <div class="header">
             <h1 class="title">💰 广告收益系统</h1>
             <p class="subtitle">配置完成 · 等待审核 · 即将开始真实收益</p>
             <div class="status-badge">✅ 广告系统已正确配置</div>
         </div>
         
-        <!-- 实时统计 -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-icon">💰</div>
@@ -290,9 +287,7 @@
             </div>
         </div>
         
-        <!-- 广告位 -->
         <div class="ad-grid">
-            <!-- 激励视频广告 -->
             <div class="ad-card" id="ad-slot-1">
                 <div class="ad-type">激励视频</div>
                 <div class="stat-icon">🎬</div>
@@ -304,7 +299,6 @@
                 </button>
             </div>
             
-            <!-- 插页式广告 -->
             <div class="ad-card" id="ad-slot-2">
                 <div class="ad-type">插页式</div>
                 <div class="stat-icon">📱</div>
@@ -316,7 +310,6 @@
                 </button>
             </div>
             
-            <!-- 每日奖励广告 -->
             <div class="ad-card" id="ad-slot-3">
                 <div class="ad-type">每日奖励</div>
                 <div class="stat-icon">🎁</div>
@@ -329,7 +322,6 @@
             </div>
         </div>
         
-        <!-- 广告配置信息展示 -->
         <div class="admob-info">
             <h3>✅ 你的广告配置信息</h3>
             <div class="info-grid">
@@ -345,7 +337,6 @@
             </div>
         </div>
         
-        <!-- 说明 -->
         <div style="background: rgba(255,152,0,0.1); padding: 20px; border-radius: 15px; margin: 30px 0; border-left: 5px solid #FF9800;">
             <h3>📝 当前状态说明</h3>
             <p><strong>审核状态：等待审核中（1-2天）</strong></p>
@@ -360,9 +351,7 @@
         </div>
     </div>
     
-    <!-- 真实横幅广告位 -->
     <div id="real-banner-ad">
-        <!-- Google AdSense 广告 -->
         <ins class="adsbygoogle"
              style="display:inline-block;width:100%;height:90px"
              data-ad-client="ca-pub-6610998489553407"
@@ -374,16 +363,13 @@
     </div>
 
     <script>
-        // ========== 广告配置 ==========
         const AD_CONFIG = {
-            // 网站使用AdSense，移动应用使用AdMob
             publisherId: 'ca-pub-6610998489553407',
             adUnits: {
                 banner: '8953209940'
             }
         };
         
-        // ========== 游戏数据 ==========
         let gameData = {
             impressions: 0,
             clicks: 0,
@@ -397,14 +383,12 @@
             }
         };
         
-        // ========== 广告收益配置 ==========
         const AD_EARNINGS = {
-            rewarded: 0.35,     // 激励视频
-            interstitial: 0.25,  // 插页式
-            daily: 0.50         // 每日奖励基础
+            rewarded: 0.35,
+            interstitial: 0.25,
+            daily: 0.50
         };
         
-        // ========== 每日奖励系统 ==========
         class DailyRewardSystem {
             constructor() {
                 this.rewardData = this.loadRewardData();
@@ -440,12 +424,10 @@
             updateDailyStatus() {
                 const today = new Date().toDateString();
                 
-                // 如果日期改变，重置今日奖励次数
                 if (this.rewardData.lastClaimDate !== today) {
                     this.rewardData.todayRewards = [];
                     this.rewardData.lastClaimDate = today;
                     
-                    // 如果连续领取天数中断
                     if (this.rewardData.lastClaimDate && 
                         !this.isYesterday(this.rewardData.lastClaimDate)) {
                         this.rewardData.streakDays = 0;
@@ -464,7 +446,6 @@
             canClaimReward() {
                 this.updateDailyStatus();
                 
-                // 检查今日奖励次数
                 const todayCount = this.rewardData.todayRewards.length;
                 if (todayCount >= this.rewardData.maxDailyClaims) {
                     return {
@@ -487,7 +468,6 @@
                 
                 let baseAmount = 0.35;
                 
-                // 奖励递增
                 switch (todayCount) {
                     case 0: baseAmount = 0.50; break;
                     case 1: baseAmount = 0.35; break;
@@ -513,7 +493,6 @@
                 const reward = this.calculateRewardAmount();
                 const claimTime = new Date().toISOString();
                 
-                // 记录奖励
                 this.rewardData.todayRewards.push({
                     amount: reward.total,
                     time: claimTime,
@@ -552,14 +531,12 @@
             }
         }
         
-        // ========== 初始化每日奖励系统 ==========
         let dailyRewardSystem;
         
         function initDailyRewardSystem() {
             dailyRewardSystem = new DailyRewardSystem();
             updateDailyRewardButton();
             
-            // 每分钟检查一次
             setInterval(() => {
                 if (dailyRewardSystem) {
                     dailyRewardSystem.updateDailyStatus();
@@ -586,11 +563,9 @@
             }
         }
         
-        // ========== 初始化广告系统 ==========
         function initAdSystem() {
             console.log('🚀 初始化广告系统');
             
-            // 检查广告SDK
             if (typeof adsbygoogle === 'undefined') {
                 console.log('⚠️ AdSense SDK未加载，3秒后重试...');
                 setTimeout(initAdSystem, 3000);
@@ -599,14 +574,11 @@
             
             console.log('✅ 广告SDK已加载');
             
-            // 初始化横幅广告
             initBannerAd();
             
-            // 显示初始化成功
             showNotification('✅ 广告系统已激活', '#4CAF50');
         }
         
-        // ========== 横幅广告 ==========
         function initBannerAd() {
             console.log('🔄 初始化横幅广告');
             
@@ -614,7 +586,6 @@
                 (adsbygoogle = window.adsbygoogle || []).push({});
                 console.log('✅ 横幅广告请求已发送');
                 
-                // 监控横幅广告状态
                 setTimeout(() => {
                     const bannerAd = document.querySelector('#real-banner-ad ins');
                     if (bannerAd) {
@@ -630,7 +601,6 @@
             }
         }
         
-        // ========== 显示激励视频广告 ==========
         function showRewardedAd() {
             if (!checkCooldown('rewarded')) return;
             
@@ -638,7 +608,6 @@
             showAdInterface('rewarded', AD_EARNINGS.rewarded);
         }
         
-        // ========== 显示插页式广告 ==========
         function showInterstitialAd() {
             if (!checkCooldown('interstitial')) return;
             
@@ -646,7 +615,6 @@
             showAdInterface('interstitial', AD_EARNINGS.interstitial);
         }
         
-        // ========== 显示每日奖励广告 ==========
         function showDailyRewarded() {
             if (!dailyRewardSystem) {
                 dailyRewardSystem = new DailyRewardSystem();
@@ -665,7 +633,6 @@
             showDailyRewardInfo(rewardInfo);
         }
         
-        // ========== 显示每日奖励信息界面 ==========
         function showDailyRewardInfo(rewardInfo) {
             const overlay = document.createElement('div');
             overlay.id = 'daily-reward-overlay';
@@ -764,7 +731,6 @@
             document.body.appendChild(overlay);
         }
         
-        // ========== 开始每日奖励广告 ==========
         function startDailyRewardAd() {
             closeAdOverlay('daily-reward-overlay');
             
@@ -782,7 +748,6 @@
             showAdInterface('daily', reward.total);
         }
         
-        // ========== 检查冷却时间 ==========
         function checkCooldown(adType) {
             const now = Date.now();
             const cooldown = gameData.cooldowns[adType] || 0;
@@ -796,7 +761,6 @@
             return true;
         }
         
-        // ========== 显示广告界面 ==========
         function showAdInterface(adType, earnings) {
             disableAdButtons(true);
             
@@ -868,18 +832,15 @@
             
             document.body.appendChild(overlay);
             
-            // 广告计时器
             let timeLeft = 30;
             let skipLeft = 5;
             const timerInterval = setInterval(() => {
                 timeLeft--;
                 document.getElementById('ad-timer').textContent = timeLeft;
                 
-                // 更新进度条
                 const progress = ((30 - timeLeft) / 30) * 100;
                 document.getElementById('ad-progress').style.width = progress + '%';
                 
-                // 更新跳过按钮
                 if (skipLeft > 0) {
                     skipLeft--;
                     document.getElementById('skip-counter').textContent = skipLeft;
@@ -898,7 +859,6 @@
                 }
             }, 1000);
             
-            // 跳过按钮点击
             document.getElementById('skip-btn').onclick = function() {
                 if (skipLeft > 0) return;
                 clearInterval(timerInterval);
@@ -907,31 +867,25 @@
                 showNotification('广告已跳过', '#FF9800');
             };
             
-            // 完成按钮点击
             document.getElementById('complete-btn').onclick = function() {
                 clearInterval(timerInterval);
                 completeAd(adType, earnings);
             };
         }
         
-        // ========== 完成广告 ==========
         function completeAd(adType, earnings) {
             closeAdOverlay('ad-overlay');
             
-            // 设置冷却时间
             gameData.cooldowns[adType] = adType === 'daily' ? 0 : 30000;
             
-            // 更新数据
             gameData.impressions++;
             gameData.clicks++;
             gameData.todayEarnings += earnings;
             gameData.totalEarnings += earnings;
             
-            // 如果是每日奖励，记录领取
             if (adType === 'daily' && dailyRewardSystem) {
                 const result = dailyRewardSystem.claimReward();
                 if (result.success) {
-                    // 使用每日奖励系统的实际金额
                     gameData.todayEarnings = gameData.todayEarnings - earnings + result.amount;
                     gameData.totalEarnings = gameData.totalEarnings - earnings + result.amount;
                     earnings = result.amount;
@@ -941,22 +895,17 @@
                 }
             }
             
-            // 更新UI
             updateGameStats();
             
-            // 显示通知
             if (adType !== 'daily') {
                 showNotification(`🎉 广告完成！ +$${earnings.toFixed(2)}`, '#4CAF50');
             }
             
-            // 启用按钮
             disableAdButtons(false);
             
-            // 开始冷却计时
             startCooldownTimer(adType);
         }
         
-        // ========== 冷却计时器 ==========
         function startCooldownTimer(adType) {
             const interval = setInterval(() => {
                 gameData.cooldowns[adType] -= 1000;
@@ -965,13 +914,11 @@
                     clearInterval(interval);
                     gameData.cooldowns[adType] = 0;
                     
-                    // 更新按钮状态
                     updateButtonState(adType);
                 }
             }, 1000);
         }
         
-        // ========== 更新按钮状态 ==========
         function updateButtonState(adType) {
             const buttonMap = {
                 rewarded: 'btn-rewarded',
@@ -991,7 +938,6 @@
             }
         }
         
-        // ========== 关闭广告界面 ==========
         function closeAdOverlay(overlayId) {
             const overlay = document.getElementById(overlayId);
             if (overlay) {
@@ -1004,7 +950,6 @@
             }
         }
         
-        // ========== 禁用/启用广告按钮 ==========
         function disableAdButtons(disabled) {
             const buttons = ['btn-rewarded', 'btn-interstitial', 'btn-daily'];
             buttons.forEach(id => {
@@ -1018,13 +963,11 @@
             });
         }
         
-        // ========== 记录广告展示 ==========
         function recordAdImpression(type) {
             gameData.impressions++;
             updateGameStats();
         }
         
-        // ========== 更新游戏统计 ==========
         function updateGameStats() {
             document.getElementById('todayEarnings').textContent = '$' + gameData.todayEarnings.toFixed(2);
             document.getElementById('totalEarnings').textContent = '$' + gameData.totalEarnings.toFixed(2);
@@ -1037,7 +980,6 @@
             saveGameData();
         }
         
-        // ========== 显示通知 ==========
         function showNotification(message, color) {
             const notification = document.createElement('div');
             notification.style.cssText = `
@@ -1068,7 +1010,6 @@
             }, 3000);
         }
         
-        // ========== 保存游戏数据 ==========
         function saveGameData() {
             try {
                 localStorage.setItem('admobGameData', JSON.stringify(gameData));
@@ -1077,7 +1018,6 @@
             }
         }
         
-        // ========== 加载游戏数据 ==========
         function loadGameData() {
             try {
                 const saved = localStorage.getItem('admobGameData');
@@ -1085,7 +1025,6 @@
                     const parsed = JSON.parse(saved);
                     const today = new Date().toLocaleDateString('zh-CN');
                     
-                    // 如果是新的一天，重置今日收益
                     if (parsed.todayDate !== today) {
                         parsed.todayEarnings = 0;
                         parsed.todayDate = today;
@@ -1105,20 +1044,15 @@
             }
         }
         
-        // ========== 页面加载 ==========
         window.addEventListener('load', function() {
             console.log('🎮 广告收益游戏加载完成');
             
-            // 加载数据
             loadGameData();
             
-            // 初始化每日奖励系统
             initDailyRewardSystem();
             
-            // 初始化广告系统
             setTimeout(initAdSystem, 1000);
             
-            // 添加动画样式
             if (!document.getElementById('anim-styles')) {
                 const style = document.createElement('style');
                 style.id = 'anim-styles';
@@ -1139,11 +1073,9 @@
                 document.head.appendChild(style);
             }
             
-            // 显示欢迎消息
             setTimeout(() => {
                 showNotification('🎉 广告配置完成！等待审核通过即可开始真实收益！', '#4CAF50');
                 
-                // 检查每日奖励状态
                 if (dailyRewardSystem) {
                     const rewardInfo = dailyRewardSystem.getRewardInfo();
                     if (rewardInfo.remainingClaims > 0) {
